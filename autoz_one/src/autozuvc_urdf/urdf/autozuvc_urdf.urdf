@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="autozuvc_urdf">
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>lcontinuous</leftJoint>
+      <rightJoint>rcontinuous</rightJoint>
+      <wheelSeparation>0.62</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
+      <torque>0.1</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.6499E-06 -0.017438 0.024051"
+        rpy="0 0 0" />
+      <mass
+        value="10" />
+      <inertia
+        ixx="8.3588"
+        ixy="-0.0001332"
+        ixz="7.7947E-05"
+        iyy="6.1934"
+        iyz="0.57541"
+        izz="9.5271" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rwheel">
+    <inertial>
+      <origin
+        xyz="0.030201 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.047898"
+        ixy="1.9365E-20"
+        ixz="4.3729E-19"
+        iyy="0.025154"
+        iyz="0"
+        izz="0.025342" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/rwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/rwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rcontinuous"
+    type="continuous">
+    <origin
+      xyz="0.31 -0.145 -0.12"
+      rpy="1.65762925454521 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="rwheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="lwheel">
+    <inertial>
+      <origin
+        xyz="0.030201 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="0.047898"
+        ixy="-4.9271E-20"
+        ixz="-1.1775E-19"
+        iyy="0.025154"
+        iyz="-8.6736E-19"
+        izz="0.025342" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/lwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/lwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lcontinuous"
+    type="continuous">
+    <origin
+      xyz="-0.31 -0.145 -0.12"
+      rpy="2.63245317306069 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="lwheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="casterwheel">
+    <inertial>
+      <origin
+        xyz="-0.0075 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="5" />
+      <inertia
+        ixx="0.00014725"
+        ixy="2E-22"
+        ixz="1.5913E-23"
+        iyy="7.5811E-05"
+        iyz="1.6941E-21"
+        izz="7.5811E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/casterwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/casterwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ccontinuous"
+    type="continuous">
+    <origin
+      xyz="-0.005 0.355 -0.22"
+      rpy="1.25842195269479 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="casterwheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="-7.1444E-05 0 0.00093026"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="5.6104E-05"
+        ixy="7.9132E-21"
+        ixz="3.0738E-07"
+        iyy="0.00026142"
+        iyz="2.0853E-21"
+        izz="0.00025732" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="cfixed"
+    type="fixed">
+    <origin
+      xyz="-0.05 -0.385 0.57"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lidar">
+    <inertial>
+      <origin
+        xyz="0.0068576 0.0087923 0"
+        rpy="0 0 0" />
+      <mass
+        value="1" />
+      <inertia
+        ixx="5.1112E-05"
+        ixy="1.6315E-05"
+        ixz="3.2735E-21"
+        iyy="0.00010945"
+        iyz="-4.5534E-21"
+        izz="8.8822E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/lidar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://autozuvc_urdf/meshes/lidar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lfixed"
+    type="fixed">
+    <origin
+      xyz="0.00391941090707163 -0.4225 0.2345"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
