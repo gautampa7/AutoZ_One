@@ -1,2 +1,2 @@
-autozuvc_urdf
+autozuvc_urdf:autozuvc_urdfy:autozuvc_urdfyy
 -DCATKIN_DEVEL_PREFIX=/home/gautam/autoz_one/devel -DCMAKE_INSTALL_PREFIX=/home/gautam/autoz_one/install -G Unix Makefiles

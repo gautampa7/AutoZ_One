@@ -36,3 +36,17 @@
 /home/gautam/autoz_one/build/autozuvc_urdf/CMakeFiles/install/local.dir
 /home/gautam/autoz_one/build/autozuvc_urdf/CMakeFiles/install/strip.dir
 /home/gautam/autoz_one/build/autozuvc_urdf/CMakeFiles/test.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/list_install_components.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/install.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/rebuild_cache.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/install/strip.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/install/local.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/test.dir
+/home/gautam/autoz_one/build/autozuvc_urdfy/CMakeFiles/edit_cache.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/list_install_components.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/install.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/rebuild_cache.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/install/strip.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/install/local.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/test.dir
+/home/gautam/autoz_one/build/autozuvc_urdfyy/CMakeFiles/edit_cache.dir

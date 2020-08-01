@@ -437,6 +437,42 @@ clean: autozuvc_urdf/CMakeFiles/_catkin_empty_exported_target.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory autozuvc_urdfy
+
+# Convenience name for "all" pass in the directory.
+autozuvc_urdfy/all:
+
+.PHONY : autozuvc_urdfy/all
+
+# Convenience name for "clean" pass in the directory.
+autozuvc_urdfy/clean:
+
+.PHONY : autozuvc_urdfy/clean
+
+# Convenience name for "preinstall" pass in the directory.
+autozuvc_urdfy/preinstall:
+
+.PHONY : autozuvc_urdfy/preinstall
+
+#=============================================================================
+# Directory level rules for directory autozuvc_urdfyy
+
+# Convenience name for "all" pass in the directory.
+autozuvc_urdfyy/all:
+
+.PHONY : autozuvc_urdfyy/all
+
+# Convenience name for "clean" pass in the directory.
+autozuvc_urdfyy/clean:
+
+.PHONY : autozuvc_urdfyy/clean
+
+# Convenience name for "preinstall" pass in the directory.
+autozuvc_urdfyy/preinstall:
+
+.PHONY : autozuvc_urdfyy/preinstall
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

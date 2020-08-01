@@ -15,6 +15,7 @@ for autozuvc_urdf robot</p>
   <depend>rviz</depend>
   <depend>joint_state_publisher</depend>
   <depend>gazebo</depend>
+  <depend>teleop_twist_keyboard</depend>
   <export>
     <architecture_independent />
   </export>

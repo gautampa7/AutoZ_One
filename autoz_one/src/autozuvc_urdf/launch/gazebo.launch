@@ -17,5 +17,5 @@
     pkg="rostopic"
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
-  <node name="spawn_model_keytelop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" />
+  <node name="spawn_model_keytelop" pkg="key_teleop" type="key_teleop.py" output="screen" />
 </launch>

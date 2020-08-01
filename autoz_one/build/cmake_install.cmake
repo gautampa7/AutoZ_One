@@ -127,6 +127,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/gautam/autoz_one/build/gtest/cmake_install.cmake")
   include("/home/gautam/autoz_one/build/autozuvc_urdf/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/autozuvc_urdfy/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/autozuvc_urdfyy/cmake_install.cmake")
 
 endif()
 

@@ -6,3 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
 subdirs(autozuvc_urdf)
+subdirs(autozuvc_urdfy)
+subdirs(autozuvc_urdfyy)
