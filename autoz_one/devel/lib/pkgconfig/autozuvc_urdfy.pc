@@ -1,0 +1,8 @@
+prefix=/home/gautam/autoz_one/devel
+
+Name: autozuvc_urdfy
+Description: Description of autozuvc_urdfy
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

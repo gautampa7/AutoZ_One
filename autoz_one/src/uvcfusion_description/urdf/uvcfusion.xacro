@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<robot name="uvcfusion" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find uvcfusion_description)/urdf/materials.xacro" />
+
+<xacro:include filename="$(find uvcfusion_description)/urdf/uvcfusion.gazebo" />
+
+<gazebo>
+<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+<legacyMode>false</legacyMode>
+<alwaysOn>true</alwaysOn>
+<updateRate>20</updateRate>
+<leftJoint>Rev2</leftJoint>
+<rightJoint>Rev1</rightJoint>
+<wheelSeparation>0.64</wheelSeparation>
+<wheelDiameter>0.3</wheelDiameter>
+<torque>0.1</torque>
+<commandTopic>cmd_vel</commandTopic>
+<odometryTopic>odom</odometryTopic>
+<odometryFrame>odom</odometryFrame>
+<robotBaseFrame>base_link</robotBaseFrame>
+</plugin>
+</gazebo>
+
+
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.033782226346891105 2.3715430983439135e-06 0.2804808377593937"/>
+    <mass value="10.500150700507"/>
+    <inertia ixx="51.398406" ixy="0.00093" ixz="-1.652129" iyy="70.361269" iyz="0.000558" izz="79.459893"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7454143579380696e-05 0.014933496651531375 3.124396154410847e-05"/>
+    <mass value="11.31834330389438"/>
+    <inertia ixx="0.045826" ixy="-3e-06" ixz="4.9e-05" iyy="0.090097" iyz="-4e-06" izz="0.045993"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.175811 0.37 -0.13208"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.175811 0.37 -0.13208"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/wheel_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7454143579380696e-05 -0.014933496651532152 -3.031334596115265e-05"/>
+    <mass value="11.31834330389438"/>
+    <inertia ixx="0.045826" ixy="3e-06" ixz="-4.9e-05" iyy="0.090097" iyz="-4e-06" izz="0.045993"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.175811 -0.37 -0.13208"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.175811 -0.37 -0.13208"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-3.8385701317533716e-07 0.0075000000000000604 4.653077914987258e-07"/>
+    <mass value="0.44390704195223746"/>
+    <inertia ixx="0.000147" ixy="0.0" ixz="-0.0" iyy="0.000277" iyz="-0.0" izz="0.000147"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.324189 0.02 -0.04208"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.324189 0.02 -0.04208"/>
+    <geometry>
+      <mesh filename="package://uvcfusion_description/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin rpy="0 0 0" xyz="0.175811 -0.37 0.13208"/>
+  <parent link="base_link"/>
+  <child link="wheel_2"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin rpy="0 0 0" xyz="0.175811 0.37 0.13208"/>
+  <parent link="base_link"/>
+  <child link="wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.324189 -0.02 0.04208"/>
+  <parent link="base_link"/>
+  <child link="castor_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+</robot>
