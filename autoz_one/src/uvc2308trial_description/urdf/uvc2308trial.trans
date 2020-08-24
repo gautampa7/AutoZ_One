@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<robot name="uvc2308trial" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="Rrev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Rrev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Rrev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="CastorRev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="CastorRev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="CastorRev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="Lrev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Lrev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="Lrev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

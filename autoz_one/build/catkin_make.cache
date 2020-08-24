@@ -1,2 +1,2 @@
-autozuvc_urdf:autozuvc_urdfy:autozuvc_urdfyy
+autozuvc_urdf:autozuvc_urdfy:autozuvc_urdfyy:uvc2308hollow_description:uvc2308trial_description:uvc_description:uvcfusion1_description:uvcfusion_description
 -DCATKIN_DEVEL_PREFIX=/home/gautam/autoz_one/devel -DCMAKE_INSTALL_PREFIX=/home/gautam/autoz_one/install -G Unix Makefiles

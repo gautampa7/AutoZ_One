@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<robot name="uvc2308hollow" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find uvc2308hollow_description)/urdf/materials.xacro" />
+<!-- <xacro:include filename="$(find uvc2308hollow_description)/urdf/uvc2308hollow.trans" /> -->
+<xacro:include filename="$(find uvc2308hollow_description)/urdf/uvc2308hollow.gazebo" />
+
+
+<gazebo>
+<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+<legacyMode>false</legacyMode>
+<alwaysOn>true</alwaysOn>
+<updateRate>20</updateRate>
+<leftJoint>Lrev</leftJoint>
+<rightJoint>Rrev</rightJoint>
+<wheelSeparation>0.64</wheelSeparation>
+<wheelDiameter>0.3</wheelDiameter>
+<torque>0.1</torque>
+<commandTopic>cmd_vel</commandTopic>
+<odometryTopic>odom</odometryTopic>
+<odometryFrame>odom</odometryFrame>
+<robotBaseFrame>base_link</robotBaseFrame>
+<publishWheelTF>true</publishWheelTF>
+<publishWheelJointState>true</publishWheelJointState>
+
+</plugin>
+</gazebo>
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.11592649426270178 -0.23199901286152788 0.08078674500535285"/>
+    <mass value="4.21100120560406"/>
+    <inertia ixx="0.010624" ixy="0.0" ixz="0.000155" iyy="0.014948" iyz="0.0" izz="0.016095"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FR_2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.566059789213762e-06 0.0029866993303004352 6.363714498178186e-06"/>
+    <mass value="0.09054674643115511"/>
+    <inertia ixx="1.5e-05" ixy="-0.0" ixz="0.0" iyy="2.9e-05" iyz="-0.0" izz="1.5e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.137027 0.306 -0.039559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/FR_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.137027 0.306 -0.039559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/FR_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="castor_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.5403312722539475e-09 0.0014999999999955882 2.0798374779709694e-07"/>
+    <mass value="0.0035512563356178673"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.037027 0.236 -0.021559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.037027 0.236 -0.021559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="FL_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.5660597897688735e-06 -0.0029866993303119538 -5.947747002243986e-06"/>
+    <mass value="0.09054674643115528"/>
+    <inertia ixx="1.5e-05" ixy="0.0" ixz="-0.0" iyy="2.9e-05" iyz="-0.0" izz="1.5e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.137027 0.158 -0.039559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/FL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.137027 0.158 -0.039559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/FL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.004186049926702656 -1.6635844886259132e-05 2.0801754474497614e-07"/>
+    <mass value="0.012526168557512393"/>
+    <inertia ixx="1e-06" ixy="0.0" ixz="-0.0" iyy="0.0" iyz="-0.0" izz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.185027 0.232 -0.153559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.185027 0.232 -0.153559"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0013250925537811042 2.8303208554625314e-08 0.0018466349196084864"/>
+    <mass value="0.007973515638463729"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.186027 0.232002 -0.109759"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.186027 0.232002 -0.109759"/>
+    <geometry>
+      <mesh filename="package://uvc2308hollow_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rrev" type="continuous">
+  <origin rpy="0 0 0" xyz="0.137027 -0.306 0.039559"/>
+  <parent link="base_link"/>
+  <child link="FR_2"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="CastorRev" type="continuous">
+  <origin rpy="0 0 0" xyz="0.037027 -0.236 0.021559"/>
+  <parent link="base_link"/>
+  <child link="castor_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="Lrev" type="continuous">
+  <origin rpy="0 0 0" xyz="0.137027 -0.158 0.039559"/>
+  <parent link="base_link"/>
+  <child link="FL_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid5" type="fixed">
+  <origin rpy="0 0 0" xyz="0.185027 -0.232 0.153559"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin rpy="0 0 0" xyz="0.186027 -0.232002 0.109759"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+</robot>

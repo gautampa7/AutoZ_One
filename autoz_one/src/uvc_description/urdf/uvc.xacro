@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+<robot name="uvc" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find uvc_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find uvc_description)/urdf/uvc.trans" />
+<xacro:include filename="$(find uvc_description)/urdf/uvc.gazebo" />
+
+<gazebo>
+<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+<legacyMode>false</legacyMode>
+<alwaysOn>true</alwaysOn>
+<updateRate>20</updateRate>
+<leftJoint>Rev2</leftJoint>
+<rightJoint>Rev1</rightJoint>
+<wheelSeparation>0.64</wheelSeparation>
+<wheelDiameter>0.3</wheelDiameter>
+<torque>0.1</torque>
+<commandTopic>cmd_vel</commandTopic>
+<odometryTopic>odom</odometryTopic>
+<odometryFrame>odom</odometryFrame>
+<robotBaseFrame>base_link</robotBaseFrame>
+<publishWheelTF>true</publishWheelTF>
+<publishWheelJointState>true</publishWheelJointState>
+</plugin>
+</gazebo>
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <mass value="50"/>
+    <inertia ixx="1" ixy="1" ixz="1" iyy="0.1" iyz="0.1" izz="0.1"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lwheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="8.713801102899765e-08 -0.029798882681564276 -4.326744847127362e-07"/>
+    <mass value="2.328108651869254"/>
+    <inertia ixx="0.013989" ixy="0.0" ixz="0.0" iyy="0.026439" iyz="-0.0" izz="0.013885"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="1.006345 -0.66 -0.150564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/lwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="1.006345 -0.66 -0.150564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/lwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rwheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="8.713802057691566e-08 0.02979888268156424 -4.326745161875589e-07"/>
+    <mass value="2.3281086518692535"/>
+    <inertia ixx="0.013989" ixy="0.0" ixz="0.0" iyy="0.026439" iyz="-0.0" izz="0.013885"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="1.006345 0.08 -0.150564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/rwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="1.006345 0.08 -0.150564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/rwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cwheel_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="8.713801058490844e-08 0.007500000000000007 -4.3267445310607444e-07"/>
+    <mass value="0.06438065825001554"/>
+    <inertia ixx="4.2e-05" ixy="0.0" ixz="-0.0" iyy="8.1e-05" iyz="0.0" izz="4.2e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="1.506345 -0.27 -0.055564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/cwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="1.506345 -0.27 -0.055564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/cwheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.007314013916279727 1.5066903875038395e-05 0.009627045255731104"/>
+    <mass value="0.036733589579973774"/>
+    <inertia ixx="1e-05" ixy="-0.0" ixz="5e-06" iyy="2e-05" iyz="0.0" izz="2.1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.746345 -0.29 -0.500564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.746345 -0.29 -0.500564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.000930344447747089 -7.875194167777932e-05 0.019999567325546974"/>
+    <mass value="0.11010262796885603"/>
+    <inertia ixx="0.000142" ixy="0.0" ixz="0.0" iyy="3.1e-05" iyz="0.0" izz="0.000144"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.776345 -0.29 -0.820564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.776345 -0.29 -0.820564"/>
+    <geometry>
+      <mesh filename="package://uvc_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rev1" type="continuous">
+  <origin rpy="0 0 0" xyz="-1.006345 0.66 0.150564"/>
+  <parent link="base_link"/>
+  <child link="lwheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rev2" type="continuous">
+  <origin rpy="0 0 0" xyz="-1.006345 -0.08 0.150564"/>
+  <parent link="base_link"/>
+  <child link="rwheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Rev3" type="continuous">
+  <origin rpy="0 0 0" xyz="-1.506345 0.27 0.055564"/>
+  <parent link="base_link"/>
+  <child link="cwheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Rigid5" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.746345 0.29 0.500564"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.776345 0.29 0.820564"/>
+  <parent link="base_link"/>
+  <child link="camera_1"/>
+</joint>
+
+</robot>

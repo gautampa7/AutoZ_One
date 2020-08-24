@@ -129,6 +129,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/gautam/autoz_one/build/autozuvc_urdf/cmake_install.cmake")
   include("/home/gautam/autoz_one/build/autozuvc_urdfy/cmake_install.cmake")
   include("/home/gautam/autoz_one/build/autozuvc_urdfyy/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/uvc2308hollow_description/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/uvc2308trial_description/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/uvc_description/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/uvcfusion1_description/cmake_install.cmake")
+  include("/home/gautam/autoz_one/build/uvcfusion_description/cmake_install.cmake")
 
 endif()
 

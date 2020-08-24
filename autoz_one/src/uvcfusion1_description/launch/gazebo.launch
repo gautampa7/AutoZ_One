@@ -1,0 +1,23 @@
+<launch>
+  <param command="$(find xacro)/xacro $(find uvcfusion1_description)/urdf/uvcfusion1.xacro" name="robot_description"/>
+  <node args="-param robot_description -urdf -model uvcfusion" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+  <!--  <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include> -->
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+      <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+  <node name="spawn_model_keytelop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" />
+
+</launch>

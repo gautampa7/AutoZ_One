@@ -4,12 +4,30 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="autozuvc_urdf">
-  <link
+  
+<gazebo>
+<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+<legacyMode>false</legacyMode>
+<alwaysOn>true</alwaysOn>
+<updateRate>20</updateRate>
+<leftJoint>lcontinuous</leftJoint>
+<rightJoint>rcontinuous</rightJoint>
+<wheelSeparation>0.64</wheelSeparation>
+<wheelDiameter>0.3</wheelDiameter>
+<torque>0.1</torque>
+<commandTopic>key_vel</commandTopic>
+<odometryTopic>odom</odometryTopic>
+<odometryFrame>odom</odometryFrame>
+<robotBaseFrame>base_link</robotBaseFrame>
+</plugin>
+</gazebo>
+
+<link
     name="base_link">
     <inertial>
       <origin
-        xyz="2.6499E-06 -0.017438 0.024051"
-        rpy="0 0 0" />
+        xyz="0.017438 2.6499E-06  0.024051"
+        rpy="0 0 1.5708" />
       <mass
         value="10" />
       <inertia
@@ -23,7 +41,7 @@
     <visual>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 1.5708" />
       <geometry>
         <mesh
           filename="package://autozuvc_urdf/meshes/base_link.STL" />
@@ -37,7 +55,7 @@
     <collision>
       <origin
         xyz="0 0 0"
-        rpy="0 0 0" />
+        rpy="0 0 1.5708" />
       <geometry>
         <mesh
           filename="package://autozuvc_urdf/meshes/base_link.STL" />
@@ -48,7 +66,7 @@
     name="rwheel">
     <inertial>
       <origin
-        xyz="0.030201 0 0"
+        xyz="0 0.030201 0"
         rpy="0 0 0" />
       <mass
         value="1" />
@@ -88,8 +106,8 @@
     name="rcontinuous"
     type="continuous">
     <origin
-      xyz="0.31 -0.145 -0.12"
-      rpy="1.65762925454521 0 0" />
+      xyz="0.145 0.31 -0.12"
+      rpy="1.5708 0 1.5708" />
     <parent
       link="base_link" />
     <child
@@ -101,7 +119,7 @@
     name="lwheel">
     <inertial>
       <origin
-        xyz="0.030201 0 0"
+        xyz="0 0.030201 0"
         rpy="0 0 0" />
       <mass
         value="1" />
@@ -141,8 +159,8 @@
     name="lcontinuous"
     type="continuous">
     <origin
-      xyz="-0.31 -0.145 -0.12"
-      rpy="2.63245317306069 0 3.14159265358979" />
+      xyz="0.145 -0.31 -0.12"
+      rpy="-1.5708 0 -1.5708" />
     <parent
       link="base_link" />
     <child
@@ -154,7 +172,7 @@
     name="casterwheel">
     <inertial>
       <origin
-        xyz="-0.0075 0 0"
+        xyz="0 -0.0075 0"
         rpy="0 0 0" />
       <mass
         value="5" />
@@ -194,8 +212,8 @@
     name="ccontinuous"
     type="continuous">
     <origin
-      xyz="-0.005 0.355 -0.22"
-      rpy="1.25842195269479 0 0" />
+      xyz="-0.355 -0.005 -0.22"
+      rpy="1.5708 0 1.5708" />
     <parent
       link="base_link" />
     <child
@@ -207,7 +225,7 @@
     name="camera">
     <inertial>
       <origin
-        xyz="-7.1444E-05 0 0.00093026"
+        xyz="0 -7.1444E-05 0.00093026"
         rpy="0 0 0" />
       <mass
         value="1" />
@@ -247,8 +265,8 @@
     name="cfixed"
     type="fixed">
     <origin
-      xyz="-0.05 -0.385 0.57"
-      rpy="1.5707963267949 0 0" />
+      xyz="0.385 -0.05 0.57"
+      rpy="1.5708 0 1.5708" />
     <parent
       link="base_link" />
     <child
@@ -260,7 +278,7 @@
     name="lidar">
     <inertial>
       <origin
-        xyz="0.0068576 0.0087923 0"
+        xyz="-0.0087923 0.0068576  0"
         rpy="0 0 0" />
       <mass
         value="1" />
@@ -300,8 +318,8 @@
     name="lfixed"
     type="fixed">
     <origin
-      xyz="0.00391941090707163 -0.4225 0.2345"
-      rpy="1.5707963267949 0 0" />
+      xyz="0.4225 0.00391941090707163 0.2345"
+      rpy="1.5708 0 1.5708" />
     <parent
       link="base_link" />
     <child

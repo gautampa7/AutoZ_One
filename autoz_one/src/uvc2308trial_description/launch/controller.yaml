@@ -1,0 +1,19 @@
+uvc2308trial_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  Rrev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Rrev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  CastorRev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: CastorRev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Lrev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Lrev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
