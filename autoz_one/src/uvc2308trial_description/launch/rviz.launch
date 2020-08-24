@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <arg default="$(find uvc2308trial_description)/urdf/uvc2308trial.xacro" name="model"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+  <!-- send fake joint values -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  </node>
+
+  <!-- Combine joint values -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+
+  <!-- Show in Rviz   -->
+  <node name="rviz" pkg="rviz" type="rviz" />
+
+</launch>

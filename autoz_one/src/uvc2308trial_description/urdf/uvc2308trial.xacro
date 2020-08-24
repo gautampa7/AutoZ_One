@@ -2,9 +2,8 @@
 <robot name="uvc2308trial" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find uvc2308trial_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find uvc2308trial_description)/urdf/uvc2308trial.trans" />
+<!-- <xacro:include filename="$(find uvc2308trial_description)/urdf/uvc2308trial.trans" /> -->
 <xacro:include filename="$(find uvc2308trial_description)/urdf/uvc2308trial.gazebo" />
-
 <gazebo>
 <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
 <legacyMode>false</legacyMode>
@@ -14,7 +13,7 @@
 <rightJoint>Rrev</rightJoint>
 <wheelSeparation>0.64</wheelSeparation>
 <wheelDiameter>0.3</wheelDiameter>
-<torque>0.1</torque>
+<torque>0.2</torque>
 <commandTopic>offset_cmd_vel</commandTopic>
 <odometryTopic>odom</odometryTopic>
 <odometryFrame>odom</odometryFrame>
@@ -29,7 +28,7 @@
 <link name="base_link">
   <inertial>
     <origin rpy="0 0 0" xyz="0.033782226346891105 2.3715430983439135e-06 0.2804808377593937"/>
-    <mass value="10.500150700507"/>
+    <mass value="50.500150700507"/>
     <inertia ixx="51.398406" ixy="0.00093" ixz="-1.652129" iyy="70.361269" iyz="0.000558" izz="79.459893"/>
     
   </inertial>
