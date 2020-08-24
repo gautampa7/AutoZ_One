@@ -4,25 +4,6 @@
 <xacro:include filename="$(find uvc2308trial_description)/urdf/materials.xacro" />
 <!-- <xacro:include filename="$(find uvc2308trial_description)/urdf/uvc2308trial.trans" /> -->
 <xacro:include filename="$(find uvc2308trial_description)/urdf/uvc2308trial.gazebo" />
-<gazebo>
-<plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
-<legacyMode>false</legacyMode>
-<alwaysOn>true</alwaysOn>
-<updateRate>10</updateRate>
-<leftJoint>Lrev</leftJoint>
-<rightJoint>Rrev</rightJoint>
-<wheelSeparation>0.64</wheelSeparation>
-<wheelDiameter>0.3</wheelDiameter>
-<torque>0.2</torque>
-<commandTopic>offset_cmd_vel</commandTopic>
-<odometryTopic>odom</odometryTopic>
-<odometryFrame>odom</odometryFrame>
-<robotBaseFrame>base_link</robotBaseFrame>
-<publishWheelTF>true</publishWheelTF>
-<publishWheelJointState>true</publishWheelJointState>
-
-</plugin>
-</gazebo>
 
 
 <link name="base_link">
